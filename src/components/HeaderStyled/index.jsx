@@ -3,6 +3,7 @@ import TextInput from "../TextInputStyled";
 
 const HeaderStyled = styled.header`
 display: flex;
+align-items: center;
 justify-content: space-between;
 padding: 60px 0;
 

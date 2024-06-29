@@ -13,11 +13,15 @@ background: linear-gradient(90deg, #C98CF1 0%, #7B78E5 100%);
 const SearchInput = styled.input`
     width: 100%;
     font-size: 20px;
-    padding: 12px 16px;
+    padding: 12px 75px 12px 16px;
     border-radius: 10px;
-    border: transparent;
     color: white;
+    border: transparent;
     background: linear-gradient(174.61deg, #041833 4.16%, #04244F 48%, #154580 96.76%);
+
+    &::placeholder{
+      color: #D9D9D9;
+    }
 
     &:focus{
     overflow: hidden;
