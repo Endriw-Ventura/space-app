@@ -7,8 +7,8 @@ align-items: center;
 font-weight: 700;
 font-size: 23px;
 line-height: 29px;
-margin-bottom: 16px;
-color: ${props => props.$ativo ? '#D9D9D9' : '#7B78E5'};
+margin-bottom: 32px;
+color: ${props => props.$active ? '#7B78E5' : '#D9D9D9'};
 `;
 
 const NavigationItem = ({ children, activeIcon, inactiveIcon, active = false}) => {

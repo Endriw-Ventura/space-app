@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { FaSearch } from 'react-icons/fa';
 
 const TextInputStyled = styled.div`
 position: relative;
@@ -41,7 +40,7 @@ const TextInput = () => {
   return (
     <TextInputStyled>
       <SearchInput type="text" placeholder="O que você procura?" />
-      <SearchIcon src='/public/icons/search.svg'/>
+      <SearchIcon src='/icons/search.svg'/>
     </TextInputStyled>
   );
 };

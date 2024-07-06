@@ -3,6 +3,10 @@ import GlobalStyles from "./components/GlobalStyles";
 import Header from "./components/HeaderStyled";
 import NavigationList from "./components/NavigationList";
 import Banner from "./components/Banner";
+import Gallery from "./components/Gallery";
+import photos from "./dataJson/fotos.json";
+import { useState } from "react";
+import ModalZoom from "./components/ModalZoom";
 
 
 const GradientBackground = styled.div`
@@ -12,22 +16,44 @@ min-height: 100vh;
 padding: 0 24px;
 box-sizing: border-box;
 `
+const AppContainer = styled.div`
+  margin: 0 auto;
+  width: 1440px;
+  max-width: 100%;
+`;
 
-const Container = styled.div`
+const MainContainer = styled.main`
   display: flex;
-  align-items: center;
   gap: 24px;
 `;
 
+const GalleryContainer = styled.main`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+`;
+
+
 function App() {
+  const [galleryPhotos, setGalleryPhotos] = useState(photos);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
+
+  
+
   return (
     <GradientBackground>
      <GlobalStyles />
-     <Header />
-     <Container>
-        <NavigationList />
-        <Banner />
-     </Container>
+     <AppContainer>
+        <Header />
+        <MainContainer>
+          <NavigationList />
+          <GalleryContainer>
+          <Banner />
+          <Gallery photos={galleryPhotos} />
+          </GalleryContainer>
+        </MainContainer>
+     </AppContainer>
+     <ModalZoom photo={selectedPhoto}/>
     </GradientBackground>
   )
 }
