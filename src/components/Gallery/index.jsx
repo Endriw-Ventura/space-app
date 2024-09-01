@@ -21,7 +21,7 @@ const PhotosContainer = styled.ul`
     gap: 24px;
 `;
 
-const Gallery = ({ photos }) => {
+const Gallery = ({ photos= [], onSelectedPhoto, onFavoriteClick }) => {
     return (
         <>
             <Tags/>
@@ -29,7 +29,7 @@ const Gallery = ({ photos }) => {
                 <SectionContainer>
                     <Title>Navegue pela sua galeria</Title>
                     <PhotosContainer>
-                        { photos.map(photo => <PhotoCard photo={photo} key={ photo.id }/>) }
+                        { photos.map(photo => <PhotoCard onZoomRequest={onSelectedPhoto} photo={photo} onFavoriteClick={onFavoriteClick} key={ photo.id }/>) }
                     </PhotosContainer>
                 </SectionContainer>
                 <Popular />

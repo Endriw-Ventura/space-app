@@ -4,69 +4,79 @@
     "fonte": "Alura Space",
     "path": "/images/gallery/foto-1.png",
     "id": "1",
-    "tagId": 2
+    "tagId": 2,
+    "favorite": false
   },
   {
     "titulo": "Via Láctea",
     "fonte": "Alura Space",
     "path": "/images/gallery/foto-2.png",
     "id": "2",
-    "tagId": 2
+    "tagId": 2,
+    "favorite": false
   },
   {
     "titulo": "Lua: quarto minguante",
     "fonte": "Alura Space",
     "path": "/images/gallery/foto-3.png",
     "id": "3",
-    "tagId": 3
+    "tagId": 3,
+    "favorite": false
   },
   {
     "titulo": "Galáxia de Andrómeda",
     "fonte": "Alura Space",
     "path": "/images/gallery/foto-4.png",
     "id": "4",
-    "tagId": 2
+    "tagId": 2,
+    "favorite": false
   },
   {
     "titulo": "Estrela Pistola",
     "fonte": "Alura Space",
     "path": "/images/gallery/foto-5.png",
     "id": "5",
-    "tagId": 1
+    "tagId": 1,
+    "favorite": false
   },
   {
     "titulo": "Ilustração",
     "fonte": "Alura Space",
     "path": "/images/gallery/foto-6.png",
     "id": "6",
-    "tagId": 4
+    "tagId": 4,
+    "favorite": false
   },
   {
     "titulo": "Galáxia de Andrómeda",
     "fonte": "Alura Space",
     "path": "/images/gallery/foto-7.png",
     "id": "7",
-    "tagId": 2
+    "tagId": 2,
+    "favorite": false
   },
   {
     "titulo": "Ilustração",
     "fonte": "Alura Space",
     "path": "/images/gallery/foto-8.png",
     "id": "8",
-    "tagId": 4
+    "tagId": 4,
+    "favorite": false
   },
   {
     "titulo": "Céu estrelado",
     "fonte": "Alura Space",
     "path": "/images/gallery/foto-9.png",
     "id": "9",
-    "tagId": 1
+    "tagId": 1,
+    "favorite": false
   },
   {
     "titulo": "Ilustração",
     "fonte": "Alura Space",
     "path": "/images/gallery/foto-10.png",
     "id": "10",
-    "tagId": 1
+    "tagId": 1,
+    "favorite": false
   }
 ]

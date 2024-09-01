@@ -38,7 +38,18 @@ function App() {
   const [galleryPhotos, setGalleryPhotos] = useState(photos);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
-  
+function onFavoriteClick(photo) {
+  const updatedPhotos = galleryPhotos.map(p => 
+    p.id === photo.id ? { ...p, favorite: !p.favorite } : p
+  );
+  setGalleryPhotos(updatedPhotos);
+}
+
+function onFavoriteClickSingle(photo) {
+ const updatedPhoto = { ...photo, favorite: !photo.favorite };
+ onFavoriteClick(updatedPhoto)
+  setSelectedPhoto(updatedPhoto);
+}
 
   return (
     <GradientBackground>
@@ -49,11 +60,11 @@ function App() {
           <NavigationList />
           <GalleryContainer>
           <Banner />
-          <Gallery photos={galleryPhotos} />
+          <Gallery onSelectedPhoto={photo => setSelectedPhoto(photo)} photos={galleryPhotos} onFavoriteClick={photo => onFavoriteClick(photo)} />
           </GalleryContainer>
         </MainContainer>
      </AppContainer>
-     <ModalZoom photo={selectedPhoto}/>
+     <ModalZoom photo={selectedPhoto} onClose={() => setSelectedPhoto(null)} onFavoriteClickSingle={photo => onFavoriteClickSingle(photo)}/>
     </GradientBackground>
   )
 }

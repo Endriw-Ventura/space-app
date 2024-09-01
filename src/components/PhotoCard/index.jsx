@@ -6,6 +6,7 @@ const Card = styled.figure`
     margin: 0;
     padding: 0;
     border-radius: 20px;
+    width: auto;
     min-width: 448px;
     box-shadow: 0px 4px 4px 0px #00000026;
 
@@ -21,9 +22,9 @@ const Card = styled.figure`
 `;
 
 const Photo = styled.img`
-    width: 448px;
-    height: 258px;
-    object-fit: fill;
+    width: ${props => props.$expanded ? '100%' : '448px'};
+    height: ${props => props.$expanded ? '90%' : '258px'};
+    object-fit: cover;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 `;
@@ -44,30 +45,38 @@ const ButtonsContainer = styled.div`
         padding: 0;
         border: none;
         background-color: transparent;
+        display: ${props => props["aria-hidden"] ? 'none' : ''}; 
     }
 `;
 
 const Icon = styled.img`
     width: 24px;
     height: 24px;
+    display: ${props => props["aria-hidden"] ? 'none' : 'visible'}; 
 `;
 
-const PhotoCard = ({ photo }) => {
+const PhotoCard = ({ photo, onZoomRequest, onFavoriteClick, expanded = false }) => {
     return(
-    <Card>
-        <Photo src={photo.path} alt="" />
+    <Card $expanded={expanded}>
+        <Photo $expanded={expanded} src={photo.path} alt="" />
         <figcaption>
             <TextContainer>
                 <PhotoDescription>{photo.titulo}</PhotoDescription>
                 <CustomText>{photo.fonte}</CustomText>
             </TextContainer>
             <ButtonsContainer>
-                <button>
-                    <Icon src="/icons/favorito.png" alt="" />
+                <button onClick={() => onFavoriteClick(photo)}>
+                    {
+                        photo.favorite ?  
+                         <Icon src="/icons/favorito-ativo.png" alt="" /> :
+                         <Icon src="/icons/favorito.png" alt="" /> 
+                    }
                 </button>
-                <button>
-                    <Icon src="/icons/expandir.png" alt="" />
-                </button>
+                { !expanded &&
+                    <button  onClick={() => onZoomRequest(photo)}>
+                        <Icon  src="/icons/expandir.png" alt="" />
+                    </button>
+                }
             </ButtonsContainer>
         </figcaption>
     </Card>
