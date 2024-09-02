@@ -10,11 +10,11 @@ const TagsContainer = styled.div`
     align-items: center;
 `;
 
-const Tags = () => {
+const Tags = ({onTagSearch}) => {
     return (
         <TagsContainer>
         <SubtitleStyled>Busque por tags:</SubtitleStyled>
-            {tags.map(tag => <Tag key={tag.id} active={tag.id == 0}>{tag.titulo}</Tag>)}
+            {tags.map(tag => <Tag onTagSearch={onTagSearch} key={tag.id} dataKey={tag.id} active={tag.id == 0}>{tag.titulo}</Tag>)}
         </TagsContainer>        
     );
 }

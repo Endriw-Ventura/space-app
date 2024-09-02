@@ -12,11 +12,11 @@ img {
 }
 `;
 
-const Header = () => {
+const Header = ({onSearch}) => {
     return (
         <HeaderStyled>
             <img src="/images/common/logo.png" alt="" />
-            <TextInput />
+            <TextInput onSearch={onSearch}/>
         </HeaderStyled>
     )
 }

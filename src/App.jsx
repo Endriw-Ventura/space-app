@@ -51,20 +51,47 @@ function onFavoriteClickSingle(photo) {
   setSelectedPhoto(updatedPhoto);
 }
 
+function onSearch(text){
+  if(text.length > 0){
+    const filteredPhotos = photos.filter(photo => photo.titulo.toLowerCase().includes(text.toLowerCase()));
+    setGalleryPhotos(filteredPhotos);
+  }else{
+    setGalleryPhotos(photos);
+  }
+}
+
+function onTagSearch(id){
+  if(id > 0){
+    const filteredPhotos = photos.filter(photo => photo.tagId == id);
+    setGalleryPhotos(filteredPhotos);
+  }else{
+    setGalleryPhotos(photos);
+  }
+}
+
   return (
     <GradientBackground>
      <GlobalStyles />
      <AppContainer>
-        <Header />
+        <Header onSearch={onSearch} />
         <MainContainer>
           <NavigationList />
           <GalleryContainer>
           <Banner />
-          <Gallery onSelectedPhoto={photo => setSelectedPhoto(photo)} photos={galleryPhotos} onFavoriteClick={photo => onFavoriteClick(photo)} />
+          <Gallery 
+            onSelectedPhoto={photo => setSelectedPhoto(photo)} 
+            photos={galleryPhotos} 
+            onFavoriteClick={photo => onFavoriteClick(photo)} 
+            onTagSearch={onTagSearch} 
+          />
           </GalleryContainer>
         </MainContainer>
      </AppContainer>
-     <ModalZoom photo={selectedPhoto} onClose={() => setSelectedPhoto(null)} onFavoriteClickSingle={photo => onFavoriteClickSingle(photo)}/>
+     <ModalZoom 
+      photo={selectedPhoto} 
+      onClose={() => setSelectedPhoto(null)} 
+      onFavoriteClickSingle={photo => onFavoriteClickSingle(photo)}
+     />
     </GradientBackground>
   )
 }

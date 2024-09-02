@@ -36,10 +36,13 @@ const SearchIcon = styled.img`
   top: 23%;
   `;
 
-const TextInput = () => {
+const TextInput = ({ onSearch }) => {
   return (
     <TextInputStyled>
-      <SearchInput type="text" placeholder="O que você procura?" />
+      <SearchInput onChange={(target) =>
+          onSearch(target.currentTarget.value)
+        } 
+        type="text" placeholder="O que você procura?" />
       <SearchIcon src='/icons/search.svg'/>
     </TextInputStyled>
   );

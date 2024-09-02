@@ -20,9 +20,12 @@ const TagTitle = styled.p`
 
 
 
-const Tag = ({children, active = false}) => {
+const Tag = ({children, active = false, onTagSearch, dataKey}) => {
 return (
-    <TagContainer $active={active}>
+    <TagContainer 
+        onClick={() => onTagSearch(dataKey)}
+        $active={active}
+     >
             <TagTitle>{children}</TagTitle>
     </TagContainer>
 );
