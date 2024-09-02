@@ -21,10 +21,10 @@ const PhotosContainer = styled.ul`
     gap: 24px;
 `;
 
-const Gallery = ({ photos= [], onSelectedPhoto, onFavoriteClick, onTagSearch }) => {
+const Gallery = ({ photos = [], tags, onSelectedPhoto, onFavoriteClick, onTagSearch }) => {
     return (
         <>
-            <Tags onTagSearch={onTagSearch}/>
+            <Tags onTagSearch={onTagSearch} tags={tags}/>
             <GalleryContainer>
                 <SectionContainer>
                     <Title>Navegue pela sua galeria</Title>

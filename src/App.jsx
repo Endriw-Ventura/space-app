@@ -5,6 +5,7 @@ import NavigationList from "./components/NavigationList";
 import Banner from "./components/Banner";
 import Gallery from "./components/Gallery";
 import photos from "./dataJson/fotos.json";
+import tags from "./dataJson/tags.json"
 import { useState } from "react";
 import ModalZoom from "./components/ModalZoom";
 
@@ -37,6 +38,7 @@ const GalleryContainer = styled.main`
 function App() {
   const [galleryPhotos, setGalleryPhotos] = useState(photos);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [allTags, setTags] = useState(tags);
 
 function onFavoriteClick(photo) {
   const updatedPhotos = galleryPhotos.map(p => 
@@ -61,10 +63,13 @@ function onSearch(text){
 }
 
 function onTagSearch(id){
+    const alteredTags = tags.map(t => t.id == id ? { ...t, active: true } : {...t, active: false})
   if(id > 0){
+    setTags(alteredTags);
     const filteredPhotos = photos.filter(photo => photo.tagId == id);
     setGalleryPhotos(filteredPhotos);
   }else{
+    setTags(alteredTags);
     setGalleryPhotos(photos);
   }
 }
@@ -79,8 +84,9 @@ function onTagSearch(id){
           <GalleryContainer>
           <Banner />
           <Gallery 
-            onSelectedPhoto={photo => setSelectedPhoto(photo)} 
             photos={galleryPhotos} 
+            tags={allTags}
+            onSelectedPhoto={photo => setSelectedPhoto(photo)} 
             onFavoriteClick={photo => onFavoriteClick(photo)} 
             onTagSearch={onTagSearch} 
           />

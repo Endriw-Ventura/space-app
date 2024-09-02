@@ -1,8 +1,8 @@
 
 import styled from 'styled-components';
-import tags from '../../dataJson/tags.json';
 import Tag from '../Tag';
 import SubtitleStyled from '../SubtitleStyled';
+import { useState } from 'react';
 
 const TagsContainer = styled.div`
     display: flex;
@@ -10,11 +10,11 @@ const TagsContainer = styled.div`
     align-items: center;
 `;
 
-const Tags = ({onTagSearch}) => {
+const Tags = ({tags, onTagSearch}) => {
     return (
         <TagsContainer>
         <SubtitleStyled>Busque por tags:</SubtitleStyled>
-            {tags.map(tag => <Tag onTagSearch={onTagSearch} key={tag.id} dataKey={tag.id} active={tag.id == 0}>{tag.titulo}</Tag>)}
+            {tags.map(tag => <Tag onTagSearch={onTagSearch} key={tag.id} dataKey={tag.id} active={tag.active}>{tag.titulo}</Tag>)}
         </TagsContainer>        
     );
 }
